@@ -12,6 +12,9 @@ Route::resource('/test', 'App\Http\Controllers\Admin\TestController');
 
 Route::resource('/grouptest', 'App\Http\Controllers\Admin\GrouptestController');
 
+Route::resource('/lab', 'App\Http\Controllers\Admin\LabController');
+
+
 Route::group(['middleware' => ['auth']], function () {
 
 

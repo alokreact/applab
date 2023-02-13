@@ -24,7 +24,7 @@ class LabController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.Lab.create');
     }
 
     /**
