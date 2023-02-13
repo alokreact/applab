@@ -75,9 +75,10 @@ class OrganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id){
+
+        $organ = Organ::find($id);
+        return view('Admin.Organs.edit',compact('organ'));
     }
 
     /**
@@ -89,7 +90,43 @@ class OrganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $organ = Organ::find($id);
+        $data = $request->except('_method', '_token');
+             
+        // $user = User::find($id);
+        
+        if ($request->file('image')) {
+        
+                $file = $request->file('image');
+                $filename = date('YmdHi') . $file->getClientOriginalName();
+        
+                $file->move(public_path('Image'), $filename);
+                $data['image'] = $filename;
+        }
+            // } else {
+            //     $data['image'] = $organ['image'];
+            // }
+        
+            
+           // $updateData = $data->except('_method', '_token');
+
+          // dd($data);
+
+
+        // $returnValue = \DB::table('organs')
+        //     ->where('id', '=', $id)
+        //     ->update([
+        //         'name' => $data['name'],
+        //         'image' => $data['new_image'],
+        //         'status' => 1,
+                  
+        //     ]);
+
+            Organ::where('id',$id)->update($data);
+        
+        //    $organ->update($data);
+
+            return redirect()->back()->with('message', 'Organ updated successfully');
     }
 
     /**

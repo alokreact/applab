@@ -33,7 +33,9 @@
                             <td><img src="{{asset('Image/'.$organ->image) }}" height='80px' width='80px' /></td>
                             
                             <td>
-                                <a href="#"><i class="btn btn-warning ik ik-edit-2"></i></a>
+                                <a href="{{route('organ.edit',[$organ->id])}}">
+                                <button type="button" class="btn btn-success"><i class="bi bi-pencil-square"></i></button>
+             </a>
 
                                  <form action="#" method="post" style="display:inline">@csrf
                                     @method('DELETE')
