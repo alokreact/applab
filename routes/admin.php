@@ -10,6 +10,8 @@ Route::resource('/organ', 'App\Http\Controllers\Admin\OrganController');
 
 Route::resource('/test', 'App\Http\Controllers\Admin\TestController');
 
+Route::resource('/grouptest', 'App\Http\Controllers\Admin\GrouptestController');
+
 Route::group(['middleware' => ['auth']], function () {
 
 

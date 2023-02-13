@@ -14,20 +14,40 @@
 
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Category</h5>
+          <h5 class="card-title">Group Test</h5>
 
           <!-- Horizontal Form -->
-          <form  action="{{route('category.store') }}" method="post" enctype="multipart/form-data">@csrf
+          <form  action="{{route('grouptest.store') }}" method="post" enctype="multipart/form-data">@csrf
                 <div class="row mb-3">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Category Name</label>
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Group Test Name</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputText" name="category_name">
+                <input type="text" class="form-control" id="inputText" name="parent_test_name">
 
-                @if($errors->has('category_name'))
-                                 <strong style="color:red"> {{ $errors->first('category_name') }}</strong>
+                @if($errors->has('parent_test_name'))
+                                 <strong style="color:red"> {{ $errors->first('parent_test_name') }}</strong>
                              @endif
               </div>
             </div>
+
+            <div class="row mb-3">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Sub Test</label>
+              <div class="col-sm-10">
+              <select class="form-control js-example-tags" multiple="multiple"  name="sub_tests[]">
+  @foreach ($sub_tests as $subtest )
+  <option value="{{$subtest->id}}">{{$subtest ->sub_test_name}}</option>
+ 
+  @endforeach
+       
+</select>
+       
+                @if($errors->has('sub_tests'))
+                                 <strong style="color:red"> {{ $errors->first('	sub_tests') }}</strong>
+                             @endif
+              </div>
+            </div>
+
+
+
              <fieldset class="row mb-3">
               <legend class="col-form-label col-sm-2 pt-0">Status</legend>
               <div class="col-sm-10">

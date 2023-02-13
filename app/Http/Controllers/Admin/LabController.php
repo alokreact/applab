@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\Admin\TestCreateRequest;
-use App\Models\SubTest;
 
-class TestController extends Controller
+class LabController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        return view('Admin.Test.index');
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class TestController extends Controller
      */
     public function create()
     {
-        return view('Admin.Test.create');
+        //
     }
 
     /**
@@ -35,14 +33,9 @@ class TestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TestCreateRequest $request)
+    public function store(Request $request)
     {
-        
-        $data = $request->all();
-
-        Subtest::create($data);
-
-        return redirect()->back()->with ('message','Test Created Succesfully');
+        //
     }
 
     /**

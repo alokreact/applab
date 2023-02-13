@@ -2,9 +2,9 @@
 
 @section('content')
 
-@include('Front-end.Components.banner');
+@include('Front-end.Components.banner')
 
-@include('Front-end.Components.organs');
+@include('Front-end.Components.organs')
 
 <section class="features">
 	<div class="container">
@@ -48,6 +48,8 @@
 	</div>
 </section>
 
+
+@include('Front-end.Components.package')
 
 <!-- <section class="section about">
 	<div class="container">

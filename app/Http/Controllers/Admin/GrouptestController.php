@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\Admin\TestCreateRequest;
+
+use App\Models\GroupTest;
 use App\Models\SubTest;
 
-class TestController extends Controller
+use App\Http\Requests\Admin\GrouptestCreateRequest;
+
+
+class GrouptestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +20,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        return view('Admin.Test.index');
+        //
     }
 
     /**
@@ -26,7 +30,9 @@ class TestController extends Controller
      */
     public function create()
     {
-        return view('Admin.Test.create');
+        $sub_tests = SubTest::all();
+
+        return view('Admin.GroupTest.create',compact('sub_tests'));
     }
 
     /**
@@ -35,14 +41,18 @@ class TestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TestCreateRequest $request)
+    public function store(GrouptestCreateRequest $request)
     {
-        
         $data = $request->all();
 
-        Subtest::create($data);
+       // dd($data);
+        
+        $data['sub_tests'] = implode(',', $data['sub_tests']);
+        
+        GroupTest::create($data);
 
-        return redirect()->back()->with ('message','Test Created Succesfully');
+        return redirect()->back()->with('message','Test Added Successfully');
+
     }
 
     /**

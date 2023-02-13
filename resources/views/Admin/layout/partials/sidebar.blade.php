@@ -49,6 +49,25 @@
 
 
   <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#grouptest-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-menu-button-wide"></i><span>Group Test</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="grouptest-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <li>
+        <a href="{{route('grouptest.create')}}">
+          <i class="bi bi-circle"></i><span>Create</span>
+        </a>
+      </li>
+      <li>
+        <a href="components-accordion.html">
+          <i class="bi bi-circle"></i><span>All</span>
+        </a>
+      </li>
+        
+    </ul>
+  </li><!-- End Components Nav -->
+
+  <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
       <i class="bi bi-journal-text"></i><span>Organs</span><i class="bi bi-chevron-down ms-auto"></i>
     </a>

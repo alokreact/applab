@@ -7,16 +7,21 @@
 @include('Admin.layout.partials.breadcrumb')
 
 
+
+
 <section class="section">
   <div class="row">
     <div class="col-lg-12">
 
+    @include('Admin.layout.partials.alert')
+
+
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Category</h5>
+          <h5 class="card-title">Test</h5>
 
           <!-- Horizontal Form -->
-          <form  action="{{route('category.store') }}" method="post" enctype="multipart/form-data">@csrf
+          <form  action="{{route('test.store') }}" method="post" enctype="multipart/form-data">@csrf
             
           <div class="row mb-3">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Test Name</label>

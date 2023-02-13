@@ -16,7 +16,7 @@
         @forelse ($organs as $organ)
       		<div class="col-lg-2">
 				<div class="client-thumb">
-					<img src="{{asset('Image/'.$organ->image)}}" alt="{{$organ->name}}" class="img-fluid">
+					<img src="{{asset('Image/'.$organ->image)}}" alt="{{$organ->name}}" class="img-fluid"  style="height:90px; width:80px">
 				</div>
 			</div>
 

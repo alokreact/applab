@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TestCreateRequest extends FormRequest
+class GrouptestCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,9 @@ class TestCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'sub_test_name'=>'required|string|min:2|max:40',
-            'price'=>'required|numeric',
-            'sample_type'=>'required',
-            'volume'=>'required',
-            'status'=>'required|boolean'
-
+            'parent_test_name'=>'required|unique:parent_tests,parent_test_name',
+            'sub_tests'=>'present|array',
+            'status'=>'required'
         ];
     }
 }
