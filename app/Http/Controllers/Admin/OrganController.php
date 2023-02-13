@@ -17,7 +17,9 @@ class OrganController extends Controller
      */
     public function index()
     {
-        //
+        $allOrgans = Organ::all();
+        return view('Admin.Organs.index', compact('allOrgans'));
+    
     }
 
     /**

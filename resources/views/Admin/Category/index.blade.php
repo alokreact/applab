@@ -19,29 +19,41 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Start Date</th>
+                  <th>Category Name</th>
+                                <th>Status</th>
+                              <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td>2016-05-25</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Bridie Kessler</td>
-                    <td>Developer</td>
-                    <td>35</td>
-                    <td>2014-12-05</td>
-                  </tr>
-                 
+                @if (count($categories) > 0)
+                                @foreach ($categories as $category)
+                                     <tr>
+                                        <td>{{ $category->category_name }}</td>
+                                        <td>{{ $category->status ==='1'?'Enabled':'Disabled' }}</td>
+                                      
+                                         <td>
+                                          <a href="#"><i class="btn btn-warning ik ik-edit-2"></i></a>
+
+                                              
+                                                <form action="#"
+                                                    method="post" style="display:inline">@csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger ml-3"><i
+                                                            class="ik ik-trash-2"></i></button>
+                                                </form>
+
+                                         </td>
+                                      
+                                    </tr>
+                                 
+                                    <!-- View Modal -->
+                                    
+                                @endforeach
+
+                            @else
+                                <td>No user to display</td>
+                            @endif
+   
                 </tbody>
               </table>
               <!-- End Default Table Example -->

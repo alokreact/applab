@@ -13,19 +13,16 @@
 
 	<div class="container">
 		<div class="row clients-logo">
-
-
-        @forelse ($organs as $organ )
-            
+        @forelse ($organs as $organ)
       		<div class="col-lg-2">
 				<div class="client-thumb">
 					<img src="{{asset('Image/'.$organ->image)}}" alt="{{$organ->name}}" class="img-fluid">
 				</div>
 			</div>
 
-        @empty
-            <p>No Labs</p>
+		@empty
 
+            <p>No Organs</p>
 
          @endforelse
 		

@@ -20,7 +20,7 @@
         </a>
       </li>
       <li>
-        <a href="components-accordion.html">
+        <a href="{{route('category')}}">
           <i class="bi bi-circle"></i><span>All</span>
         </a>
       </li>
@@ -59,7 +59,7 @@
         </a>
       </li>
       <li>
-        <a href="forms-layouts.html">
+        <a href="{{route('organ.index')}}">
           <i class="bi bi-circle"></i><span>All</span>
         </a>
       </li>
