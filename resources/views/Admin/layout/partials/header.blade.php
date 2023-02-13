@@ -207,12 +207,21 @@
               <hr class="dropdown-divider">
             </li>
 
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                     
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
+              
+            <a class="dropdown-item d-flex align-items-center" href="#">
+                
+              <i class="bi bi-box-arrow-right"></i>
+
+                <input type="submit"  value="signout"/>
+
+                <!-- Sign Out</span> -->
               </a>
             </li>
+</form>
 
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->

@@ -4,11 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\Admin\OrganCreateRequest;
-use App\Models\Organ;
+use App\Http\Requests\Admin\TestCreateRequest;
 
-
-class OrganController extends Controller
+class TestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +25,7 @@ class OrganController extends Controller
      */
     public function create()
     {
-        return view('Admin.Organs.create');
+        return view('Admin.Test.create');
     }
 
     /**
@@ -36,24 +34,14 @@ class OrganController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(OrganCreateRequest $request)
+    public function store(TestCreateRequest $request)
     {
         
         $data = $request->all();
 
-        if ($request->file('image')) {
-    
-            $file = $request->file('image');
-            $filename = date('YmdHi') . $file->getClientOriginalName();
-    
-            $file->move(public_path('Image'), $filename);
-            $data['image'] = $filename;
-            $data['status'] = 1;
-        }
-    
-        Organ::create($data);
-        
-        return redirect()->back()->with('message','Organ Created Succesfully');
+        Subtest::create($data);
+
+        return redirect()->back()->with ('message','Test Created Succesfully');
     }
 
     /**

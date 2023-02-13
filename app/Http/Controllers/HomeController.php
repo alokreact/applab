@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Lab;
+
+use App\Models\Organ;
+
 class HomeController extends Controller
 {
     /**
@@ -26,8 +29,11 @@ class HomeController extends Controller
     {
 
         $labs = Lab::orderBy('created_at', 'desc')->get();
+      
+        $organs = Organ::take(12)->get();
 
-        return view('Front-end.Home',compact('labs'));
+
+        return view('Front-end.Home',compact('labs','organs'));
     }
 
 
