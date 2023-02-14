@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
  <head>
-   @include('admin.layout.partials.head')
+   @include('Admin.layout.partials.head')
  </head>
  <body>
 
-@include('admin.layout.partials.header')
+@include('Admin.layout.partials.header')
 
 
-@include('admin.layout.partials.sidebar')
+@include('Admin.layout.partials.sidebar')
 
 
 @yield('content')
 
 
-@include('admin.layout.partials.footer')
+@include('Admin.layout.partials.footer')
  
  </body>
 </html>
