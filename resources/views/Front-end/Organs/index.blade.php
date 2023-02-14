@@ -7,8 +7,8 @@
     <div class="row">
       <div class="col-md-12">
         <div class="block text-center">
-          <span class="text-white">Contact Us</span>
-          <h1 class="text-capitalize mb-5 text-lg">Get in Touch</h1>
+          <span class="text-white"></span>
+          <h1 class="text-capitalize mb-5 text-lg">All Organs</h1>
 
           <!-- <ul class="list-inline breadcumb-nav">
             <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
@@ -26,27 +26,22 @@
 <section class="section contact-info pb-0">
     <div class="container">
          <div class="row">
-            <div class="col-lg-4 col-sm-6 col-md-6">
+          @forelse ($allorgans as $organ)
+          <div class="col-lg-4 col-sm-6 col-md-6" style="margin-bottom:3px">
                 <div class="contact-block mb-4 mb-lg-0">
-                    <i class="icofont-live-support"></i>
-                    <h5>Call Us</h5>
+                <img src="{{asset('Image/'.$organ->image)}}" alt="{{$organ->name}}" class="img-fluid"  style="height:90px; width:80px">
+				  
+                    <h5>{{$organ->name}}</h5>
                      +823-4565-13456
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="contact-block mb-4 mb-lg-0">
-                    <i class="icofont-support-faq"></i>
-                    <h5>Email Us</h5>
-                     contact@mail.com
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="contact-block mb-4 mb-lg-0">
-                    <i class="icofont-location-pin"></i>
-                    <h5>Location</h5>
-                     North Main Street,Brooklyn Australia
-                </div>
-            </div>
+            
+          @empty
+          <p>No Records</p>
+            
+          @endforelse
+            
+           
         </div>
     </div>
 </section>

@@ -10,6 +10,7 @@ class Lab extends Model
 {
     protected $guarded = [];
 
+    protected $fillable = ['lab_name','address1','state', 'city','pin','phone','image','status'];
 
     public function getParentTest()
     {

@@ -49,7 +49,7 @@
 </section>
 
 
-@include('Front-end.Components.package')
+<!-- @include('Front-end.Components.package') -->
 
 <!-- <section class="section about">
 	<div class="container">

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\Admin\LabcreateRequest;
+
+use App\Models\Lab;
 
 class LabController extends Controller
 {
@@ -14,7 +17,7 @@ class LabController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.Lab.index');
     }
 
     /**
@@ -33,9 +36,21 @@ class LabController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LabcreateRequest $request)
     {
-        //
+        $data = $request->all();
+
+        if($request->file('image')) {
+
+            $file = $request->file('image');
+            $filename = date('Ymd') . $file->getClientOriginalName();
+
+            $file->move(public_path('Image'), $filename);
+            $data['image'] = $filename;
+        }
+
+        Lab::create($data);
+        return redirect()->back()->with('message', 'Lab added successfully');
     }
 
     /**
@@ -46,7 +61,7 @@ class LabController extends Controller
      */
     public function show($id)
     {
-        //
+         
     }
 
     /**
@@ -57,7 +72,9 @@ class LabController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lab = Lab::find($id);
+
+        return view('Admin.Lab.edit',compact('lab'));
     }
 
     /**

@@ -14,12 +14,13 @@
 	<div class="container">
 		<div class="row clients-logo">
 
-
         @forelse ($labs as $lab )
             
       		<div class="col-lg-2">
 				<div class="client-thumb">
 					<img src="{{asset('Image/'.$lab->image)}}" alt="" class="img-fluid">
+					<br/>
+					<label></label>
 				</div>
 			</div>
 

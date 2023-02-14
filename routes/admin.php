@@ -17,7 +17,6 @@ Route::resource('/lab', 'App\Http\Controllers\Admin\LabController');
 
 Route::group(['middleware' => ['auth']], function () {
 
-
     Route::get('/admin', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
  
 });

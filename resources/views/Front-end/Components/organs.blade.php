@@ -11,12 +11,21 @@
 		</div>
 	</div>
 
+	
+	<a href="{{route('allorgans')}}">
+		<button class="btn btn-success" style="float:right; margin-right:45px;margin-top:-30px">View All</button></a>
+	
 	<div class="container">
-		<div class="row clients-logo">
+	
+	<div class="row clients-logo">
+
+			   
         @forelse ($organs as $organ)
       		<div class="col-lg-2">
 				<div class="client-thumb">
 					<img src="{{asset('Image/'.$organ->image)}}" alt="{{$organ->name}}" class="img-fluid"  style="height:90px; width:80px">
+					<br/>
+					<label style="margin-left:-50px">{{$organ->name}}</label>
 				</div>
 			</div>
 

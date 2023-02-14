@@ -4,11 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\Admin\TestCreateRequest;
-use App\Models\SubTest;
-use App\Models\Organ;
 
-class TestController extends Controller
+class FindTestbyOrgan extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +14,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        return view('Admin.Test.index');
+        //
     }
 
     /**
@@ -25,10 +22,9 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
-
-        $organs = Organ::all();
-        return view('Admin.Test.create',compact('organs'));
+    public function create()
+    {
+        
     }
 
     /**
@@ -37,13 +33,9 @@ class TestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TestCreateRequest $request){
-        
-        $data = $request->all();
-     
-        $subtest= Subtest::create($data);
-
-        return redirect()->back()->with ('message','Test Created Succesfully');
+    public function store(Request $request)
+    {
+        //
     }
 
     /**

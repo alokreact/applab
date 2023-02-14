@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/allorgans', [App\Http\Controllers\OrganController::class, 'index'])->name('allorgans');
 
 
 include"admin.php";

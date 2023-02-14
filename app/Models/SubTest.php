@@ -18,6 +18,11 @@ class SubTest extends Model
         return $this->belongsToMany(Lab::class,'lab_package', 'subtest_id','lab_id');
     }
 
+    public function organ(){
+
+        return $this->hasOne(Organ::class);
+    }
+
 
 
   

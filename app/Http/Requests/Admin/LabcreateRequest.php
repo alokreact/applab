@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OrganCreateRequest extends FormRequest
+class LabcreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,15 @@ class OrganCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|string|min:3|max:15|unique:organs,name',
-            'image'=>'required|dimensions:min_width=80,min_height=80',
-            'status'=>'required|boolean'
+            'lab_name'=>'required',
+            'address1'=>'required',
+            'state'=>'required',
+            'city'=>'required',
+            'pin'=>'required|numeric',
+            'phone'=>'required|numeric',
+            'image'=>'required',
+            'status'=>'required'
+
         ];
     }
 }

@@ -29,8 +29,8 @@
                 <input type="text" class="form-control" id="inputText" name="sub_test_name">
 
                 @if($errors->has('sub_test_name'))
-                                 <strong style="color:red"> {{ $errors->first('sub_test_name') }}</strong>
-                             @endif
+                        <strong style="color:red"> {{ $errors->first('sub_test_name') }}</strong>
+                @endif
               </div>
             </div>
           
@@ -66,6 +66,25 @@
                                  <strong style="color:red"> {{ $errors->first('volume') }}</strong>
                              @endif
               </div>
+            </div>
+          
+
+            <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Organs</label>
+              <div class="col-sm-10">
+                <select class="form-control js-example-basic-single"   name="organ_id">
+              
+                @foreach ($organs as $organ)
+                  <option value="{{$organ->id}}">{{$organ ->name}}</option>
+                @endforeach
+
+                </select>
+
+                @if($errors->has('organ'))
+                  <strong style="color:red"> {{ $errors->first('organ') }}</strong>
+                @endif
+
+            </div>
             </div>
           
             <fieldset class="row mb-3">
