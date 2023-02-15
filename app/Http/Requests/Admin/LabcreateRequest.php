@@ -28,11 +28,10 @@ class LabcreateRequest extends FormRequest
             'address1'=>'required',
             'state'=>'required',
             'city'=>'required',
-            'pin'=>'required|numeric',
-            'phone'=>'required|numeric',
+            'pin'=>'required|numeric|max:6',
+            'phone'=>'required|numeric|max:10',
             'image'=>'required',
             'status'=>'required'
-
         ];
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Admin\TestCreateRequest;
@@ -17,7 +16,8 @@ class TestController extends Controller
      */
     public function index()
     {
-        return view('Admin.Test.index');
+        $subtests = SubTest::all();
+        return view('Admin.Test.index',compact('subtests'));
     }
 
     /**
@@ -41,7 +41,7 @@ class TestController extends Controller
         
         $data = $request->all();
      
-        $subtest= Subtest::create($data);
+        $subtest= SubTest::create($data);
 
         return redirect()->back()->with ('message','Test Created Succesfully');
     }
@@ -56,7 +56,6 @@ class TestController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -65,7 +64,8 @@ class TestController extends Controller
      */
     public function edit($id)
     {
-        //
+        $subtest = SubTest::find($id);
+        return view('Admin.Test.edit',compact('subtest'));
     }
 
     /**
@@ -75,19 +75,23 @@ class TestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id){
+        $data = $request->all();
+        $subtest = SubTest::find($id);
+        $subtest->update($data);
+        return redirect()->back()->with('message','Updated Successfully');
     }
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id){
+
+        $subtest = SubTest::find($id);
+        $subtest ->delete();
+        return redirect()->back()->with('message','Deleted Successfully');
+
     }
 }

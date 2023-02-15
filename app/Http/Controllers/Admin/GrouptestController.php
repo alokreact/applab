@@ -44,8 +44,8 @@ class GrouptestController extends Controller
     public function store(GrouptestCreateRequest $request)
     {
         $data = $request->all();
-
-       // dd($data);
+       
+        //dd($data);
         
         $data['sub_tests'] = implode(',', $data['sub_tests']);
         

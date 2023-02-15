@@ -39,9 +39,7 @@ class LabController extends Controller
     public function store(LabcreateRequest $request)
     {
         $data = $request->all();
-
         if($request->file('image')) {
-
             $file = $request->file('image');
             $filename = date('Ymd') . $file->getClientOriginalName();
 

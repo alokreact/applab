@@ -13,17 +13,26 @@ class CategoryController extends Controller
         return  view('Admin.Category.create');
     }
     public function  index(){
-
         $categories = Category::all();
-
         return  view('Admin.Category.index',compact('categories'));
     }
-    public function store(CategoryCreateRequest $request){
-        
+    public function store(CategoryCreateRequest $request){   
         $data = $request->all();
-
         Category::create($data);
         return redirect()->back()->with('message', 'Test added successfully');
+    }
+    public function edit($id){
+        $category = Category :: find($id);
+        return view('Admin.Category.edit',compact('category'));
+    }
+    public function update (CategoryCreateRequest $request , $id){
+
+        $data = $request->all();
+        $category = Category:: find($id);
+        $category->update($data);
+
+        return redirect()->back()->with('message','Updated Successfully');
+    
     }
 
 }
