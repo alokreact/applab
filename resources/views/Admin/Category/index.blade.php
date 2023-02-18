@@ -32,7 +32,7 @@
                                         <td>{{ $category->status ==='1'?'Enabled':'Disabled' }}</td>
                                       
                                          <td>
-                                          <a href="#"><i class="btn btn-warning ik ik-edit-2"></i></a>
+                                          <a href="{{route('category.edit',$category->id)}}"><i class="btn btn-warning ik ik-edit-2"></i></a>
 
                                               
                                                 <form action="#"

@@ -13,7 +13,7 @@
                             <h5 class="card-title">Test</h5>
 
                             <!-- Horizontal Form -->
-                            <form action="{{ route('test.update') }}" method="post" enctype="multipart/form-data">@csrf
+                            <form action="{{ route('test.update',[$subtest->id]) }}" method="post" enctype="multipart/form-data">@csrf
 @method('put')
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Test Name</label>

@@ -64,8 +64,9 @@ class TestController extends Controller
      */
     public function edit($id)
     {
+        $organs = Organ::all();
         $subtest = SubTest::find($id);
-        return view('Admin.Test.edit',compact('subtest'));
+        return view('Admin.Test.edit',compact('subtest','organs'));
     }
 
     /**

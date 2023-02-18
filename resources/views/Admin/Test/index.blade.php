@@ -26,17 +26,17 @@
                                     @if (count($subtests) > 0)
                                         @foreach ($subtests as $key => $subtest)
                                             <tr>
-                                                <td>{{ $subtests->sub_test_name }}</td>
-                                                <td>{{ $subtests->price }}</td>
-                                                <td>{{ $subtests->volume }}</td>
-                                                <td>{{ $subtests->sample_type }}</td>
+                                                <td>{{ $subtest->sub_test_name }}</td>
+                                                <td>{{ $subtest->price }}</td>
+                                                <td>{{ $subtest->volume }}</td>
+                                                <td>{{ $subtest->sample_type }}</td>
 
                                                 <td>
                                                     <a href="{{ route('test.edit', [$subtest->id]) }}">
                                                         <button type="button" class="btn btn-success"><i
                                                                 class="bi bi-pencil-square"></i></button>
                                                     </a>
-                                                    <form action="{{route('test.desroy',[$subtest->id])}}" method="post" style="display:inline">@csrf
+                                                    <form action="{{route('test.destroy',[$subtest->id])}}" method="post" style="display:inline">@csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger ml-3"><i
                                                                 class="ik ik-trash-2"></i></button>
