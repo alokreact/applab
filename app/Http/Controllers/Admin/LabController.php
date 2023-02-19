@@ -71,7 +71,6 @@ class LabController extends Controller
     public function edit($id)
     {
         $lab = Lab::find($id);
-
         return view('Admin.Lab.edit',compact('lab'));
     }
 

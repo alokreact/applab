@@ -12,14 +12,14 @@ class Lab extends Model
 
     protected $fillable = ['lab_name','address1','state', 'city','pin','phone','image','status'];
 
-    public function getParentTest()
-    {
+    public function getParentTest(){
         return $this->hasOne (ParentTest::class, 'id', 'parent_test_id');
     }
 
-    public function getSubtest(){
+    public function subtest(){
 
-        return $this->belongsToMany(SubTest::class, 'lab_package','lab_id','subtest_id');
+        return $this->belongsToMany(SubTest::class,'lab_package')
+                     ->withPivot(['price']);
     }
 
 }

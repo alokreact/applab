@@ -15,6 +15,7 @@ Route::resource('/grouptest', 'App\Http\Controllers\Admin\GrouptestController');
 Route::resource('/lab', 'App\Http\Controllers\Admin\LabController');
 Route::resource('/category', 'App\Http\Controllers\Admin\CategoryController');
 
+Route::resource('/labpackage', 'App\Http\Controllers\Admin\LabPackageController');
 
 Route::group(['middleware' => ['auth']], function () {
 

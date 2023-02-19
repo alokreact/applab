@@ -15,16 +15,11 @@ class SubTest extends Model
     }
     public function getLab(){
 
-        return $this->belongsToMany(Lab::class,'lab_package', 'subtest_id','lab_id');
+        return $this->belongsToMany(Lab::class,'lab_package','sub_test_id','lab_id')->withPivot(['price']);;
     }
 
     public function organ(){
 
-        return $this->hasOne(Organ::class);
+        return $this->belongsToMany(Organ::class,'organ_id','id');
     }
-
-
-
-  
-   
 }

@@ -4,7 +4,7 @@
 			<div class="col-lg-4 mr-auto col-sm-6">
 				<div class="widget mb-5 mb-lg-0">
 					<div class="logo mb-4">
-						<img src="images/Logo.jpeg" alt="" class="img-fluid" style="height:80px; width:220px">
+						<img src="{{asset('images/Logo.jpeg')}}" alt="" class="img-fluid" style="height:80px; width:220px">
 					</div>
 					<p>Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad eos obcaecati tenetur veritatis eveniet distinctio possimus.</p>
 
@@ -103,14 +103,13 @@
     <!-- 
     Essential Scripts
     =====================================-->
-
     
     <!-- Main jQuery -->
-    <script src="{{asset('plugins/jquery/jquery.js')}}"></script>
-    <!-- Bootstrap 4.3.2 -->
+	<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+
+	<!-- Bootstrap 4.3.2 -->
     <script src="{{asset('plugins/bootstrap/js/popper.js')}}"></script>
     <script src="{{asset('plugins/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('plugins/counterup/jquery.easing.js')}}"></script>
     <!-- Slick Slider -->
     <script src="{{asset('plugins/slick-carousel/slick/slick.min.js')}}"></script>
     <!-- Counterup -->
@@ -119,7 +118,53 @@
     <script src="{{asset('plugins/shuffle/shuffle.min.js')}}"></script>
     <script src="{{asset('plugins/counterup/jquery.counterup.min.js')}}"></script>
     <!-- Google Map -->
-    <script src="{{asset('plugins/google-map/map.js')}}"></script>
-     
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script src="{{asset('js/script.js')}}"></script>
     <script src="{{asset('js/contact.js')}}"></script>
+	
+
+<script>
+	 $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+            }
+        });
+	function getSubtestlist(){
+
+		var locationurl = "{{route('subtest.ajax')}}";
+
+		console.log(locationurl)	  
+		 $(".js-subtest").select2({
+			placeholder: 'Search Test like CBC,RBC ...',
+		 	ajax:{
+					type: "POST",
+					url: locationurl,
+					dataType: 'json',
+					processResults: function (data) {
+						console.log(data)
+						return {
+							results: $.map(data, function (item) {
+								return {
+									text: item.sub_test_name,
+									id: item.id
+								}
+							})
+						};
+					},
+					cache: true
+				}
+		})   
+		}
+	
+		getSubtestlist();
+	
+
+		$('.js-subtest').on('select2:selecting', function(e) {
+
+			var data= e.params.args.data;
+			console.log('>>>',data)
+		
+		
+	});
+</script>

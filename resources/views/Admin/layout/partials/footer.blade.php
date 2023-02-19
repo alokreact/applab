@@ -3,11 +3,7 @@
       &copy; Copyright <strong><span>CALL LABS</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="#">CALL LABS</a>
+       Designed by <a href="#">CALL LABS</a>
     </div>
   </footer><!-- End Footer -->
 
@@ -29,13 +25,32 @@
   <script src="{{asset('admin-assets/js/main.js')}}"></script>
 <script>
   $(".js-example-tags").select2({
-  tags: true
+    tags: true
 });
 </script>
 
 <script type="text/javascript">
-$(document).ready(function() {
+ $(document).ready(function() {
   $(".js-example-basic-single").select2();
+});
+
+$(document).ready(function() {
+  $(".js-labs").select2({
+    tags: true
+  });
+
+  $('.js-labs').on('select2:selecting', function(e) {
+
+    var data= e.params.args.data;
+    var dummy = '<label for="inputEmail3" class="col-sm-2 col-form-label mt-3">Details</label><div class="col-sm-5 "><input type="text" class="form-control" id="inputText" name="subtest_id[]" value="'+data.text+'"></div><div class="col-sm-5"><input type="text" class="form-control" id="inputText" name="price['+data.id+']" placeholder="Price"></div>\r\n';
+       
+    $('#details').append(dummy);
+
+  });
+
+  $('.js-labs').on('select2:unselecting', function(e) {
+    console.log('removing: ' , e.params.args.data);
+  });
 });
 </script>
 </body>

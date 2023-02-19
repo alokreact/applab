@@ -14,8 +14,7 @@ class Organ extends Model
 
     public function subtest(){
 
-        return $this->belongsToMany(SubTest::class,'findtestbyorgan','organ_id','sub_test_id');
-
+        return $this->hasMany(SubTest::class,'organ_id');
     }
    
 }
